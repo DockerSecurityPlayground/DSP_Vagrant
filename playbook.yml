@@ -32,6 +32,7 @@
     git:
       repo: https://github.com/giper45/DockerSecurityPlayground.git
       dest: /home/vagrant/DockerSecurityPlayground
+      update: yes
 
   - name: Install npm packages
     npm: 
