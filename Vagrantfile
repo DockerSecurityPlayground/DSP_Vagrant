@@ -2,9 +2,15 @@
 # vi: set ft=ruby :
 unless Vagrant.has_plugin?("vagrant-docker-compose")
   system("vagrant plugin install vagrant-docker-compose")
-  puts "Dependencies installed, please try the command again."
+  puts "Dependencies installed, please try `vagrant up` again."
   exit
 end 
+
+unless Vagrant.has_plugin?("vagrant-disksize")
+  system("vagrant plugin install vagrant-disksize")
+  puts "Dependencies installed, please try `vagrant up` again."
+  exit
+end
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
@@ -18,6 +24,7 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "ubuntu/bionic64"
+  config.disksize.size = "40GB"
   config.vm.provision :docker
   config.vm.provision :docker_compose
   config.vm.provision "shell", inline: "apt-get update && apt-get install -y python-minimal"
