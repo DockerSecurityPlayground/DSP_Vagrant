@@ -1,7 +1,7 @@
 ---
-# Ansible playbook for a Node.js API app server.
+# Ansible playbook for DSP Installation 
 #
-# @author Jeff Geerling (2015).
+# @author gx1 (2019).
 
 - hosts: all
   gather_facts: yes
