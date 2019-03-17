@@ -1,15 +1,16 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-unless Vagrant.has_plugin?("vagrant-docker-compose")
-  system("vagrant plugin install vagrant-docker-compose")
-  puts "Dependencies installed, please try `vagrant up` again."
-  exit
-end 
+ if !Vagrant.has_plugin?("vagrant-docker-compose")
+   puts "Pls install vagrant-docker-compose (vagrant plugin install vagrant-docker-compose), then try 'vagrant up' again"
+   # system("vagrant plugin install vagrant-docker-compose")
+   exit
+ end 
 
-unless Vagrant.has_plugin?("vagrant-disksize")
-  system("vagrant plugin install vagrant-disksize")
-  puts "Dependencies installed, please try `vagrant up` again."
-  exit
+if !Vagrant.has_plugin?("vagrant-disksize")
+   puts "Pls install vagrant-disksize (vagrant plugin install vagrant-disksize), then try 'vagrant up' again"
+   # system("vagrant plugin install vagrant-disksize")
+   # puts "Dependencies installed, please try `vagrant up` again."
+   exit
 end
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
